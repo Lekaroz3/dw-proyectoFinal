@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pedidos{% endblock %}
+
+{% block body %}
+    <h1>Pedidos</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ pedido.id }}</td>
+            </tr>
+            <tr>
+                <th>Detalles</th>
+                <td>{{ pedido.detalles }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('pedidos_index') }}">back to list</a>
+
+    <a href="{{ path('pedidos_edit', {'id': pedido.id}) }}">edit</a>
+
+    {{ include('pedidos/_delete_form.html.twig') }}
+{% endblock %}

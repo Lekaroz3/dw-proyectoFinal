@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    
+ 
+  <div class="row mt-5">
+       <div class="container">
+           <form action="{{ path('homepage') }}" method="POST">
+      <div class="form-group row">
+    <label for="staticEmail" class="col-sm-2 col-form-label">Categoria</label>
+    <div class="col-sm-10">
+      <select name="categoria" class="form-control form-control-sm">
+          <option value="nada">Seleccione categoria</option>
+  {% for cate in categorias %}
+            <option value="{{ cate.getId() }}">{{ cate.getNombre() }}</option>
+        {% endfor %}
+</select>
+    </div>
+  </div>
+ 
+  <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+ 
+      <a href="{{ path('zapatilla_new') }}">New Zapa</a>
+       
+    <div class="col-md-9 mx-auto">
+  <div class="row mt-5">
+      {% for zapa in zapatillas %}
+          <div class="col-12 col-md-6  col-lg-4">
+              <figure class="figure">
+                <a href="{{ path('zapatilla_show', {'id': zapa.getId()}) }}" ><img src="{{ zapa.getUrlImagen() }}" class="figure-img img-fluid rounded"></a>
+                <figcaption class="figure-caption">
+                    <h5><a [routerLink]="['/zapa', zapa.getId()]">{{zapa.getNombre()}}</a>
+                        <span>{{zapa.getPrecio()}}</span>
+                    </h5>
+                    <p>{{zapa.getDescripcion()}}</p>
+                </figcaption>
+              </figure>
+          </div>
+      {% endfor %} 
+</div>
+   </div>
+  </div>
+</div>
+
+{% endblock %}
+
+ 

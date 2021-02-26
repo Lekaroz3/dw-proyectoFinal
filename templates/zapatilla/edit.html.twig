@@ -1,0 +1,11 @@
+
+{% block body %}
+    <form method="post" action="{{ path('zapatilla_edit',{'id': zapatilla.getId()}) }}">
+        {{ include('zapatilla/_form.html.twig', {'button_label': 'Update'}) }}
+    </form>
+    
+
+    <a href="{{ path('zapatilla_index') }}">back to list</a>
+
+    {{ include('zapatilla/_delete_form.html.twig') }}
+{% endblock %}

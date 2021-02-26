@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Zapatilla index{% endblock %}
+
+{% block body %}
+    <h1>Zapatilla index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Precio</th>
+                <th>UrlImagen</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for zapatilla in zapatillas %}
+            <tr>
+                <td>{{ zapatilla.id }}</td>
+                <td>{{ zapatilla.nombre }}</td>
+                <td>{{ zapatilla.descripcion }}</td>
+                <td>{{ zapatilla.precio }}</td>
+                <td>{{ zapatilla.urlImagen }}</td>
+                <td>
+                    <a href="{{ path('zapatilla_show', {'id': zapatilla.id}) }}">show</a>
+                    <a href="{{ path('zapatilla_edit', {'id': zapatilla.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('zapatilla_new') }}">Create new</a>
+{% endblock %}

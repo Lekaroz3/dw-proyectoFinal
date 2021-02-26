@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    {{ parent() }}
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-8 mx-auto">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Zapatilla</h3>
+                        <h4 class="card-subtitle mb-2 text-muted">Add new</h4>
+                        <div class="card-text">
+                            {{ form_start(form, {'action': path('zapatilla_new'), 'method': 'POST'}) }}
+
+                            <div class="border border-white row">
+                                <label for="vName" class="col-sm-2 col-form-label">{{ form_label(form.nombre) }}</label>
+                                <div class="col-sm-10">
+                                    {{ form_widget(form.nombre) }}
+                                </div>
+                            </div>
+                            <div class="border border-white  row">
+                                <label for="vTitle"
+                                       class="col-sm-2 col-form-label">{{ form_label(form.descripcion) }}</label>
+                                <div class="col-sm-10">
+                                    {{ form_widget(form.descripcion) }}
+                                </div>
+                            </div>
+
+
+                            <div class="border border-white  row">
+                                <label for="ltextDescription"
+                                       class="col-sm-2 col-form-label">{{ form_label(form.precio) }}</label>
+                                <div class="col-sm-10 textarea">
+                                    {{ form_widget(form.precio) }}
+                                </div>
+                            </div>
+                                
+                             <div class="border border-white  row">
+                                <label for="ltextDescription"
+                                       class="col-sm-2 col-form-label">{{ form_label(form.urlImagen) }}</label>
+                                <div class="col-sm-10 textarea">
+                                    {{ form_widget(form.urlImagen) }}
+                                </div>
+                            </div>
+                                
+                                <div class="border border-white row">
+                            <label for="categoria" class="col-2 col-form-label">{{ form_label(form.categoria) }}</label>
+                            <div class="col-10">
+                                {{ form_widget(form.categoria) }}
+                                <a href ="{{ path('categoria_new') }}">New Categoria</a>
+                            </div>
+                        </div>
+
+
+                            <div class="border border-white  row">
+                                <div class="col-sm-4 textarea">
+                                    {{ form_widget(form.save) }}
+                                </div>
+                                <div class="col-sm-4 textarea">
+                                    {{ form_widget(form.saveAndAdd) }}
+                                </div>
+                            </div>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+ 
